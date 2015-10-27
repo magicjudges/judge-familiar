@@ -10,29 +10,15 @@
 if ( ! function_exists( 'judge_familiar_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
  */
 function judge_familiar_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Judge Familiar, use a find and replace
-	 * to change 'judge-familiar' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'judge-familiar', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
 	add_theme_support( 'title-tag' );
 
 	/*
@@ -47,10 +33,6 @@ function judge_familiar_setup() {
 		'primary' => esc_html__( 'Primary Menu', 'judge-familiar' ),
 	) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
@@ -114,10 +96,10 @@ add_action( 'widgets_init', 'judge_familiar_widgets_init' );
  * Enqueue scripts and styles.
  */
 function judge_familiar_scripts() {
+	wp_enqueue_style( 'bootstrap-v4', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css', array(), '20151026', true );
 	wp_enqueue_style( 'judge-familiar-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'judge-familiar-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
 	wp_enqueue_script( 'judge-familiar-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
