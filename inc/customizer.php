@@ -14,6 +14,27 @@ function judge_familiar_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+	$wp_customize->add_setting( 'show_excerpts', array(
+		'default'   => 'excerpts',
+		'transport' => 'refresh',
+	) );
+
+	$wp_customize->add_section( 'judge_child_customizer', array(
+		'title'    => __( 'Content Options', 'twentyten-judge' ),
+		'priority' => 100,
+	) );
+
+	$wp_customize->add_control( 'judge_child_excerpt_control', array(
+		'label'    => __( 'Content Excerpts' ),
+		'section'  => 'judge_child_customizer',
+		'settings' => 'show_excerpts',
+		'type'     => 'radio',
+		'choices'  => array(
+			'excerpts' => __( 'Only Excerpts', 'twentyten-judge' ),
+			'full'     => __( 'Full Posts', 'twentyten-judge' ),
+		),
+	) );
 }
 add_action( 'customize_register', 'judge_familiar_customize_register' );
 

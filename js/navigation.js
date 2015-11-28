@@ -40,42 +40,59 @@
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
+		this.blur();
 	};
 
-	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
-
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( var i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+	var language = document.getElementById("secondary-menu");
+	if ( ! language ) {
+		return;
 	}
 
-	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
+	var languages = language.querySelectorAll("#secondary-menu > li");
+
+	if ( languages.length === 0) {
+		return;
 	}
 
-	/**
-	 * Sets or removes .focus class on an element.
-	 */
-	function toggleFocus() {
-		var self = this;
+	var current = "en";
+	if ( window.location.search ) {
+		var re = /lang=([^&]+)/;
+		var match = re.exec(window.location.search);
+		if ( match[1] ) {
+			current = match[1];
+		}
+	}
 
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+	for( var i = 0; i < languages.length; i++ ) {
+		if ( languages[i].classList.contains("lang-" + current) ) {
+			var submenu = document.createElement("ul");
 
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
+			for ( var j = 0; j < languages.length; j++ ) {
+				if ( i !== j ) {
+					var newItem = languages[j].cloneNode(true);
+					submenu.appendChild(newItem);
+					language.removeChild(languages[j]);
 				}
 			}
+			var link = languages[i].getElementsByTagName("a")[0];
+			var root = document.createElement("span");
+			root.innerHTML = link.innerHTML;
+			languages[i].removeChild(link);
+			languages[i].appendChild(root);
+			languages[i].appendChild(submenu);
 
-			self = self.parentElement;
+			languages[i].style.display = "block";
+			languages[i].addEventListener("click", function () {
+				if (document.documentElement.clientWidth < 992) {
+					var current = languages[i].getAttribute( 'aria-expanded');
+					if (current === 'true') {
+						languages[i].setAttribute( 'aria-expanded', 'false' );
+					} else {
+						languages[i].setAttribute( 'aria-expanded', 'true' );
+					}
+				}
+			});
+			break;
 		}
 	}
 } )();

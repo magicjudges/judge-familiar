@@ -1,0 +1,7 @@
+.judge-familiar-stacked-pills .nav-link {
+	border-radius: 0 0.25rem 0.25rem 0;
+}
+.judge-familiar-stacked-pills .nav-link.active,
+.judge-familiar-stacked-pills .nav-link.active:hover {
+	background-color: darkorange;
+}

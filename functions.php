@@ -8,27 +8,18 @@
  */
 
 if ( ! function_exists( 'judge_familiar_setup' ) ) :
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function judge_familiar_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 */
 	load_theme_textdomain( 'judge-familiar', get_template_directory() . '/languages' );
 
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'judge-familiar' ),
 	) );
@@ -41,23 +32,26 @@ function judge_familiar_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-	) );
-
-	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'judge_familiar_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'f1f1f1',
 		'default-image' => '',
 	) ) );
+
+	add_theme_support( 'custom-header', array(
+		'width'					=>	980,
+		'height'				=>	190
+	) );
+
+	if ( ! get_theme_mod( 'show_excerpts' ) ) {
+		set_theme_mod( 'show_excerpts', 'excerpts' );
+	}
+
+	register_nav_menus( array(
+		'language'        => __( 'Language Navigation', 'judge-familiar' ),
+		'language-single' => __( 'Language Navigation Single', 'judge-familiar' ),
+	) );
+
+	add_filter( 'get_the_excerpt', 'do_shortcode' );
 }
 endif; // judge_familiar_setup
 add_action( 'after_setup_theme', 'judge_familiar_setup' );
@@ -70,7 +64,7 @@ add_action( 'after_setup_theme', 'judge_familiar_setup' );
  * @global int $content_width
  */
 function judge_familiar_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'judge_familiar_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'judge_familiar_content_width', 980 );
 }
 add_action( 'after_setup_theme', 'judge_familiar_content_width', 0 );
 
@@ -92,13 +86,25 @@ function judge_familiar_widgets_init() {
 }
 add_action( 'widgets_init', 'judge_familiar_widgets_init' );
 
+if ( ! function_exists('judge_familiar_excerpt') ) :
+	function judge_familiar_excerpt($text = '') {
+		return sprintf('%s <p class="readmore"><a href="%s">Read more.</a></p>',
+			$text,
+			esc_url( get_permalink() )
+		);
+	}
+endif;
+
+add_filter( 'get_the_excerpt', 'judge_familiar_excerpt', 99, 1 );
+
 /**
  * Enqueue scripts and styles.
  */
 function judge_familiar_scripts() {
-	wp_enqueue_style( 'bootstrap-v4', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css', array(), '20151026', true );
+	wp_enqueue_style( 'bootstrap-v4', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css', array(), '20151026' );
 	wp_enqueue_style( 'judge-familiar-style', get_stylesheet_uri() );
 
+	wp_enqueue_script( 'bootstrap-v4', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '20151026', true );
 	wp_enqueue_script( 'judge-familiar-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( 'judge-familiar-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -132,3 +138,30 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+if ( !function_exists('shortcode_error')) :
+
+function shortcode_error($code, $msg) {
+  return sprintf(
+    "<strong>Shortcode Error:</strong> <code>%s</code> %s.",
+    $code,
+    $msg
+  );
+}
+
+endif;
+
+foreach (glob(get_template_directory() . '/shortcodes/*.php') as $file) {
+  include $file;
+}
+
+if( !function_exists('var_dump_to_log')) :
+
+function var_dump_to_log($variable)
+{
+  ob_start();
+  var_dump($variable);
+  trigger_error(ob_get_clean());
+}
+
+endif;

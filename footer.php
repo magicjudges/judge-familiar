@@ -13,11 +13,10 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'judge-familiar' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'judge-familiar' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'judge-familiar' ), 'judge-familiar', '<a href="http://www.aleaiactaest.ch" rel="designer">Joel Krebs</a>' ); ?>
+	<footer id="colophon" class="row site-footer" role="contentinfo">
+		<div class="col-xs-12 site-info">
+			<a href="http://blogs.magicjudges.org/help/" target="_blank">Supported by the Judge WordPress Network.</a>
+			<a class="wordpress" target="_blank" href="https://wordpress.org/"></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
