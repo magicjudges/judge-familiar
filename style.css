@@ -722,6 +722,12 @@ a:active {
 
 /* Small menu. */
 
+ul.nav-menu[aria-expanded=true] {
+  background-color: rgb(54, 54, 54);
+  position: absolute;
+  z-index: 99999;
+}
+
 .main-navigation ul[aria-expanded=true],
 .main-navigation ul[aria-expanded=true] ul {
 	display: block;

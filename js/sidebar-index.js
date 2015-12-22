@@ -25,7 +25,8 @@
     if (currentScroll > offset.top) {
       $index.css({
         "position": "fixed",
-        "top": "0"
+        "top": "0",
+        "width": "230px"
       });
     } else {
       $index.css({
