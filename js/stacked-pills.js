@@ -1,5 +1,5 @@
-(function($) {
-	$(".judge-familiar-stacked-pills .nav-link").click(function(event) {
+(function ($) {
+	$(".judge-familiar-stacked-pills .nav-link").click(function (event) {
 		document.location.hash = this.getAttribute("href");
 	});
 
