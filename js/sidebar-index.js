@@ -4,7 +4,7 @@
 	var $indexMenu = $("#sidebar-index ul");
 	var $headers = $("article h2");
 	var $window = $(window);
-	var offset = $index.offset();
+	var offset = $index.offset().top;
 
 	$headers.each(function () {
 		var title = $(this).text();
@@ -22,7 +22,7 @@
 
 	function adjustPosition() {
 		var currentScroll = $window.scrollTop();
-		if (currentScroll > offset.top) {
+		if (currentScroll > offset) {
 			$index.css({
 				"position": "fixed",
 				"top": "0",

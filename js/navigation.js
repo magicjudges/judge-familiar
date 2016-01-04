@@ -58,7 +58,7 @@
 	if (window.location.search) {
 		var re = /lang=([^&]+)/;
 		var match = re.exec(window.location.search);
-		if (match[1]) {
+		if (match && match[1]) {
 			current = match[1];
 		}
 	}

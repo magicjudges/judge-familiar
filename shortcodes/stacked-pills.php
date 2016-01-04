@@ -74,7 +74,7 @@ function judge_familiar_stacked_pills_item($atts, $content)
 endif;
 add_shortcode('stacked-pills-item', 'judge_familiar_stacked_pills_item');
 
-if (!function_exists('judge_familiar_stacked_pills_head')) :
+if (!function_exists('judge_familiar_stacked_pills_enqueue')) :
 
 function judge_familiar_stacked_pills_enqueue($posts)
 {

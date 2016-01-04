@@ -1083,7 +1083,30 @@ ul.nav-menu[aria-expanded=true] {
 }
 
 .edit-link {
-	float: right;
+	background-color: #363636;
+	display: none;
+	padding: 5px;
+	position: absolute;
+	right: 0px;
+}
+
+.edit-link a {
+	color: white;
+}
+
+.edit-link a:hover {
+	color: darkorange;
+}
+
+.edit-link:before {
+	color: white;
+	content: "\f464";
+	font-family: "dashicons";
+	vertical-align: top;
+}
+
+article:hover .edit-link {
+	display: block;
 }
 
 .updated:not(.published) {
@@ -1106,6 +1129,12 @@ ul.nav-menu[aria-expanded=true] {
 	margin: 0;
 	padding: 7px;
 	width: 190px;
+}
+
+.alert-grey {
+	color: #616161;
+	background-color: #e0e0e0;
+	border-color: #bdbdbd;
 }
 
 /*--------------------------------------------------------------

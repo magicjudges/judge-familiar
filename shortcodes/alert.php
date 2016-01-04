@@ -24,6 +24,9 @@ function judge_familiar_alert($atts, $content = null, $tag)
       case 'red':
           $class = 'alert-danger';
           break;
+      case 'grey':
+          $class = 'alert-grey';
+          break;
       default:
           $class = 'alert-info';
     }

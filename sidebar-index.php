@@ -11,6 +11,7 @@ wp_enqueue_script('sidebar-index', get_template_directory_uri().'/js/sidebar-ind
 ?>
 
 <div id="secondary" class="col-lg-3 hidden-md-down sidebar-index" role="complementary">
+  <?php dynamic_sidebar( 'sidebar-1' ); ?>
   <aside id="sidebar-index">
     <nav role="navigation">
   	   <h2><?php _e('Contents', 'judge-familiar'); ?></h2>

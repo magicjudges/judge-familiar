@@ -1,0 +1,19 @@
+.cr-rules ul {
+  list-style: none;
+}
+
+.cr-rules > ul {
+  padding-left: 0;
+}
+
+.cr-rules ul li {
+  padding: 5px;
+}
+
+.cr-rules li:target {
+  background: #FFF0A4;
+}
+
+.cr-rules ul ul {
+  padding-left: 20px;
+}
