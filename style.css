@@ -262,11 +262,16 @@ table {
 td,
 th {
 	padding: 0;
+	text-align: left;
 }
 
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
+
+.site-info {
+	min-height: 0;
+}
 
 header .row {
 	margin: 0;
@@ -332,6 +337,12 @@ header .site-header-image img {
 .site-footer a:visited {
 	color: white;
 	font-size: 0.75rem;
+}
+
+.site-footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .site-footer .wordpress {
@@ -428,6 +439,23 @@ ins {
 
 big {
 	font-size: 125%;
+}
+
+#primary h1 {
+	font-size: 1.8rem;
+}
+
+#primary h2 {
+	font-size: 1.4rem;
+}
+
+#primary h3 {
+	font-size: 1.2rem;
+}
+
+#primary h4 {
+	font-size: 1rem;
+	font-weight: bold;
 }
 
 /*--------------------------------------------------------------
@@ -618,6 +646,12 @@ a:active {
 ## Menus
 --------------------------------------------------------------*/
 
+#site-navigation {
+	background-color: #363636;
+	float: left;
+	width: 100%;
+}
+
 .main-navigation li {
 	color: white;
 	line-height: 34px;
@@ -645,10 +679,6 @@ a:active {
 	background-color: #363636;
 }
 
-.primary-menu {
-	padding-left: 0;
-}
-
 .primary-menu ul,
 .secondary-menu ul {
 	list-style: none;
@@ -658,6 +688,18 @@ a:active {
 
 .primary-menu ul {
 	display: none;
+}
+
+.secondary-menu ul > li {
+	display: none;
+}
+
+.secondary-menu ul > li:first {
+	display: block;
+}
+
+.secondary-menu ul ul li {
+	display: block;
 }
 
 .secondary-menu ul ul {
@@ -992,10 +1034,8 @@ ul.nav-menu[aria-expanded=true] {
 }
 
 .sidebar-index h2 {
-	font-size: 1em;
 	font-weight: bold;
 	margin: 0.67em 0;
-	padding: 0 1em;
 }
 
 .sidebar-index li {
@@ -1021,7 +1061,8 @@ ul.nav-menu[aria-expanded=true] {
 }
 
 .widget h2 {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
+	font-weight: bold;
 }
 
 .widget ul {
@@ -1126,6 +1167,7 @@ article:hover .edit-link {
 .judgeimg.wp-caption .wp-caption-text {
 	color: white;
 	background-color: #363636;
+	font-size: .8rem;
 	margin: 0;
 	padding: 7px;
 	width: 190px;

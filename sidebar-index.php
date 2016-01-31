@@ -14,7 +14,6 @@ wp_enqueue_script('sidebar-index', get_template_directory_uri().'/js/sidebar-ind
   <?php dynamic_sidebar( 'sidebar-1' ); ?>
   <aside id="sidebar-index">
     <nav role="navigation">
-  	   <h2><?php _e('Contents', 'judge-familiar'); ?></h2>
        <ul class="nav nav-pills nav-stacked">
        </ul>
     </nav>

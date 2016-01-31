@@ -14,10 +14,13 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="row site-footer" role="contentinfo">
-		<div class="col-xs-12 site-info">
+		<div class="col-sm-6">
+			<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+		</div>
+		<div class="col-sm-6">
 			<a href="http://blogs.magicjudges.org/help/" target="_blank">Supported by the Judge WordPress Network.</a>
 			<a class="wordpress" target="_blank" href="https://wordpress.org/"></a>
-		</div><!-- .site-info -->
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

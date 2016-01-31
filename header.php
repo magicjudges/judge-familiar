@@ -28,11 +28,11 @@
 		<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'judge-familiar' ); ?></a>
 
 		<header id="masthead" class="row site-header" role="banner">
-			<div class="site-info">
-				<h1 class="site-title col-sm-6">
+			<div class="site-info col-xs-12">
+				<h1 class="site-title col-md-6">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 				</h1>
-				<p class="site-description col-sm-6">
+				<p class="site-description col-md-6">
 					<span><?php bloginfo( 'description' ); ?></span>
 				</p>
 			</div>

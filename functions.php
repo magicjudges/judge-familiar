@@ -22,6 +22,7 @@ function judge_familiar_setup() {
 
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'judge-familiar' ),
+		'footer' => esc_html__( 'Footer Menu', 'judge-familiar' )
 	) );
 
 	add_theme_support( 'html5', array(

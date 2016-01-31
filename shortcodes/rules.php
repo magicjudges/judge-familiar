@@ -29,7 +29,7 @@ function judge_familiar_rules($atts, $content = null, $tag)
               '<li id="%s"><strong>%s</strong> %s</li>',
               $id[1],
               $matches[1][$item],
-              $matches[2][$item]
+              do_shortcode($matches[2][$item])
             );
         } elseif (preg_match('/^[0-9]+\.([0-9]+[a-z])$/', $rule, $id)) {
             if (!$subrule) {
@@ -40,7 +40,7 @@ function judge_familiar_rules($atts, $content = null, $tag)
               '<li id="%s"><strong>%s</strong> %s</li>',
               $id[1],
               $matches[1][$item],
-              $matches[2][$item]
+              do_shortcode($matches[2][$item])
             );
         } else {
             return shortcode_error($tag, 'has a invalid CR number (XXX.YZ).');

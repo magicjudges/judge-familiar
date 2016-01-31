@@ -13,6 +13,10 @@ function judge_familiar_stacked_pills($atts, $content, $tag)
         return shortcode_error($tag, 'must have non-empty content');
     }
 
+    $atts = shortcode_atts(array(
+        'size' => '2'
+    ), $atts);
+
     // Regex magic! https://xkcd.com/1171/
     $pattern = '\[stacked-pills-item( name="([^"]*)")?( active="([^"]*)")?\](.*)\[\/stacked-pills-item\]';
     $items = preg_match_all('/'.$pattern.'/sU', $content, $matches);
@@ -38,9 +42,10 @@ function judge_familiar_stacked_pills($atts, $content, $tag)
 
     return sprintf(
       '<div class="row judge-familiar-stacked-pills">'.
-      '<ul class="nav nav-pills nav-stacked col-lg-2" role="tablist">%s</ul>'.
-      '<div class="tab-content col-lg-10">%s</div>'.
+      '<ul class="nav nav-pills nav-stacked col-lg-%d" role="tablist">%s</ul>'.
+      '<div class="tab-content col-lg-%d">%s</div>'.
       '</div>',
+      intval($atts['size']),
       implode(array_map(function ($nav_item) {
         return sprintf(
           '<li class="nav-item"><a href="#%s" class="nav-link %s" role="tab" data-toggle="tab">%s</a></li>',
@@ -49,6 +54,7 @@ function judge_familiar_stacked_pills($atts, $content, $tag)
           $nav_item['name']
         );
       }, $nav_items)),
+      12 - intval($atts['size']),
       implode(array_map(function ($nav_item) {
         return sprintf(
           '<div role="tabpanel" class="tab-pane fade %s" id="%s">%s</div>',
