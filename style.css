@@ -327,6 +327,27 @@ header .site-header-image img {
 	vertical-align: -9px;
 }
 
+.page-navigation {
+	margin-bottom: 15px;
+	min-height: 2rem;
+}
+
+.page-navigation ._previous_page {
+	float: left;
+}
+
+.page-navigation ._previous_page:before {
+	content: "◀";
+}
+
+.page-navigation ._next_page {
+	float: right;
+}
+
+.page-navigation ._next_page:after {
+	content: "▶";
+}
+
 .site-footer {
 	background-color: #363636;
 	padding: 10px;

@@ -57,6 +57,88 @@ function judge_familiar_setup() {
 endif; // judge_familiar_setup
 add_action( 'after_setup_theme', 'judge_familiar_setup' );
 
+if ( ! function_exists( 'judge_familiar_page_navigation_box' ) ) :
+	function judge_familiar_page_navigation_box( $page ) {
+		wp_nonce_field(
+			'judge_familiar_page_navigation_box',
+			'judge_familiar_page_navigation_box_nonce'
+		);
+
+		$prev = get_post_meta( $page->ID, '_previous_page', true );
+		$next = get_post_meta( $page->ID, '_next_page', true );
+?>
+		<div class="page_navigation_input">
+			<label for="page_navigation_input_prev">Previous Page</label>
+			<input id="page_navigation_input_prev" name="page_navigation_input_prev" type="text" value="<?= $prev ?>" />
+		</div>
+
+		<div class="page_navigation_input">
+			<label for="page_navigation_input_prev">Next Page</label>
+			<input id="page_navigation_input_prev" name="page_navigation_input_next" type="text" value="<?= $next ?>" />
+		</div>
+<?php
+	}
+
+	function judge_familiar_register_meta_boxes_save( $page_id ) {
+		if ( ! isset( $_POST['judge_familiar_page_navigation_box_nonce'] ) ) {
+			return $page_id;
+		}
+
+		if ( ! wp_verify_nonce(
+			$_POST['judge_familiar_page_navigation_box_nonce'],
+			'judge_familiar_page_navigation_box' )
+		) {
+			return $page_id;
+		}
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return $page_id;
+		}
+
+		if ( ! current_user_can( 'edit_post', $page_id ) ) {
+			return $page_id;
+		}
+
+		if ( isset( $_POST['page_navigation_input_prev'] ) &&
+				 strlen( $_POST['page_navigation_input_prev']) > 0
+		) {
+			update_post_meta(
+				$page_id,
+				'_previous_page',
+				intval( $_POST['page_navigation_input_prev'] )
+			);
+		} else {
+			delete_post_meta( $page_id, '_previous_page' );
+		}
+
+		if ( isset( $_POST['page_navigation_input_next'] ) &&
+				 strlen( $_POST['page_navigation_input_next']) > 0
+		) {
+			update_post_meta(
+				$page_id,
+				'_next_page',
+				intval( $_POST['page_navigation_input_next'] )
+			);
+		} else {
+			delete_post_meta( $page_id, '_next_page' );
+		}
+
+		return $page_id;
+	}
+endif;
+
+function judge_familiar_register_meta_boxes() {
+	add_meta_box(
+		'page_navigation',
+		__('Page Navigation', 'judge_familiar'),
+		'judge_familiar_page_navigation_box',
+		'page',
+		'side'
+	);
+}
+add_action( 'add_meta_boxes_page', 'judge_familiar_register_meta_boxes' );
+add_action( 'save_post', 'judge_familiar_register_meta_boxes_save' );
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
