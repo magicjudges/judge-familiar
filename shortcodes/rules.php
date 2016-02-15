@@ -20,7 +20,7 @@ function judge_familiar_rules($atts, $content = null, $tag)
 
     for ($item = 0; $item < $items; ++$item) {
         $rule = $matches[1][$item];
-        if (preg_match('/^[0-9]+\.([0-9])+$/', $rule, $id)) {
+        if (preg_match('/^[0-9]+\.([0-9]+)$/', $rule, $id)) {
             if ($subrule) {
                 $result .= '</li></ul>';
                 $subrule = false;
