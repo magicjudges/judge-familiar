@@ -328,6 +328,7 @@ header .site-header-image img {
 }
 
 .page-navigation {
+	font-size: .8rem;
 	margin-bottom: 15px;
 	min-height: 2rem;
 }

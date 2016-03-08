@@ -17,8 +17,10 @@
 		<div class="col-sm-6">
 			<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
 		</div>
-		<div class="col-sm-6">
-			<a href="http://blogs.magicjudges.org/help/" target="_blank">Supported by the Judge WordPress Network.</a>
+		<div class="col-sm-5">
+			<a href="http://blogs.magicjudges.org/help/" target="_blank">Need help with your own blog? Contact us!</a>
+		</div>
+		<div class="col-sm-1">
 			<a class="wordpress" target="_blank" href="https://wordpress.org/"></a>
 		</div>
 	</footer><!-- #colophon -->
