@@ -26,7 +26,7 @@
 	<div class="entry-content">
 		<?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?>
 			<div class="featured-image">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail(array(150, 150)); ?>
 			</div>
 		<?php else : ?>
 			<?php judge_familiar_featured_author(); ?>

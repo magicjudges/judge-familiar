@@ -49,7 +49,7 @@
 			<? endif; ?>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<div class="col-lg-9 col-xs-6 primary-menu">
+			<div class="col-lg-9 col-xs-7 primary-menu">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 	    		<span></span>
 	    		<span></span>
@@ -61,7 +61,7 @@
 				 	'depth' => 3
 				) ); ?>
 			</div>
-			<div class="col-lg-3 col-xs-6 secondary-menu">
+			<div class="col-lg-3 col-xs-5 secondary-menu">
 				<?php wp_nav_menu( array(
 					'theme_location' => 'language',
 					'menu_id' => 'secondary-menu',

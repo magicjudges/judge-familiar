@@ -7,8 +7,11 @@
  * @package Judge_Familiar
  */
 
-?>
+$previous_page = get_post_meta( get_the_ID(), '_previous_page', true );
+$next_page = get_post_meta( get_the_ID(), '_next_page', true );
 
+if ($previous_page || $next_page):
+?>
 <div class="page-navigation">
   <?php foreach ( array('_previous_page', '_next_page') as $element ) {
     $id = get_post_meta( get_the_ID(), $element, true );
@@ -23,3 +26,4 @@
     }
   } ?>
 </div>
+<? endif;

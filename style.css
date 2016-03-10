@@ -155,6 +155,12 @@ figure {
 	margin: 1em 40px;
 }
 
+figcaption {
+	background-color: whitesmoke;
+	font-size: .8rem;
+	padding: 3px;
+}
+
 hr {
 	box-sizing: content-box;
 	height: 0;
@@ -1121,7 +1127,9 @@ ul.nav-menu[aria-expanded=true] {
 }
 
 .cat-links {
-	font-size: .8em;
+	font-size: .8rem;
+	font-weight: bold;
+	margin-bottom: .5rem;
 	text-transform: uppercase;
 }
 
@@ -1143,6 +1151,10 @@ ul.nav-menu[aria-expanded=true] {
 .entry-summary,
 .entry-content {
 	text-align: justify;
+}
+
+.entry-footer {
+	font-size: .8rem;
 }
 
 .edit-link {

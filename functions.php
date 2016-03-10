@@ -19,6 +19,7 @@ function judge_familiar_setup() {
 	add_theme_support( 'title-tag' );
 
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 125, 125 );
 
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'judge-familiar' ),
