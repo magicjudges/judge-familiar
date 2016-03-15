@@ -12,13 +12,14 @@
 <div class="page-navigation">
   <?php foreach ( array('_previous_page', '_next_page') as $element ) {
     $id = get_post_meta( get_the_ID(), $element, true );
+    $title = get_post_meta( get_the_ID(), $element . '_title', true );
 
     if ( $id && get_post_status ( $id ) == 'publish' ) {
       printf(
         '<a class="%s" href="%s">%s</a>',
         $element,
         get_permalink( $id ),
-        get_the_title( $id )
+        ( empty( $title ) ? get_the_title( $id ) : $title )
       );
     }
   } ?>
