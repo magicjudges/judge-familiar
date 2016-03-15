@@ -57,6 +57,11 @@ add_action( 'after_setup_theme', 'judge_familiar_setup' );
 
 if ( ! function_exists( 'judge_familiar_page_navigation_box' ) ) :
 	function judge_familiar_page_navigation_box( $page ) {
+		wp_enqueue_style(
+			'judge-familiar-stacked-pills',
+   			get_template_directory_uri().'/css/page-navigation.css'
+   		);
+
 		wp_nonce_field(
 			'judge_familiar_page_navigation_box',
 			'judge_familiar_page_navigation_box_nonce'
@@ -64,15 +69,19 @@ if ( ! function_exists( 'judge_familiar_page_navigation_box' ) ) :
 
 		$prev = get_post_meta( $page->ID, '_previous_page', true );
 		$next = get_post_meta( $page->ID, '_next_page', true );
+		$prev_title = get_post_meta( $page->ID, '_previous_page_title', true );
+		$next_title = get_post_meta( $page->ID, '_next_page_title', true );
 ?>
 		<div class="page_navigation_input">
 			<label for="page_navigation_input_prev">Previous Page</label>
-			<input id="page_navigation_input_prev" name="page_navigation_input_prev" type="text" value="<?= $prev ?>" />
+			<input id="page_navigation_input_prev" name="page_navigation_input_prev" type="number" value="<?= $prev ?>" placeholder="Page ID"/><!--
+			--><input id="page_navigation_input_prev_title" name="page_navigation_input_prev_title" type="text" value="<?= $prev_title ?>" placeholder="Page Title" />
 		</div>
 
 		<div class="page_navigation_input">
-			<label for="page_navigation_input_prev">Next Page</label>
-			<input id="page_navigation_input_prev" name="page_navigation_input_next" type="text" value="<?= $next ?>" />
+			<label for="page_navigation_input_next">Next Page</label>
+			<input id="page_navigation_input_next" name="page_navigation_input_next" type="number" value="<?= $next ?>" placeholder="Page ID"/><!--
+			--><input id="page_navigation_input_next_title" name="page_navigation_input_next_title" type="text" value="<?= $next_title ?>" placeholder="Page Title" />
 		</div>
 <?php
 	}
@@ -105,8 +114,14 @@ if ( ! function_exists( 'judge_familiar_page_navigation_box' ) ) :
 				'_previous_page',
 				intval( $_POST['page_navigation_input_prev'] )
 			);
+			update_post_meta(
+				$page_id,
+				'_previous_page_title',
+				strip_tags( $_POST['page_navigation_input_prev_title'] )
+			);
 		} else {
 			delete_post_meta( $page_id, '_previous_page' );
+			delete_post_meta( $page_id, '_previous_page_title' );
 		}
 
 		if ( isset( $_POST['page_navigation_input_next'] ) &&
@@ -117,8 +132,14 @@ if ( ! function_exists( 'judge_familiar_page_navigation_box' ) ) :
 				'_next_page',
 				intval( $_POST['page_navigation_input_next'] )
 			);
+			update_post_meta(
+				$page_id,
+				'_next_page_title',
+				strip_tags( $_POST['page_navigation_input_next_title'] )
+			);
 		} else {
 			delete_post_meta( $page_id, '_next_page' );
+			delete_post_meta( $page_id, '_next_page_title' );
 		}
 
 		return $page_id;
