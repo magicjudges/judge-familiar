@@ -23,7 +23,9 @@ function judge_familiar_setup() {
 
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'judge-familiar' ),
-		'footer' => esc_html__( 'Footer Menu', 'judge-familiar' )
+		'footer' => esc_html__( 'Footer Menu', 'judge-familiar' ),
+		'language' => esc_html__( 'Language Navigation', 'judge-familiar' ),
+		'language-single' => esc_html__( 'Language Navigation Single', 'judge-familiar' )
 	) );
 
 	add_theme_support( 'html5', array(
@@ -47,11 +49,6 @@ function judge_familiar_setup() {
 	if ( ! get_theme_mod( 'show_excerpts' ) ) {
 		set_theme_mod( 'show_excerpts', 'excerpts' );
 	}
-
-	register_nav_menus( array(
-		'language'        => __( 'Language Navigation', 'judge-familiar' ),
-		'language-single' => __( 'Language Navigation Single', 'judge-familiar' ),
-	) );
 
 	add_filter( 'get_the_excerpt', 'do_shortcode' );
 }

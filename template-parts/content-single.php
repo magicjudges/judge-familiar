@@ -13,6 +13,10 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
+		<div id="language-single">
+			<?php wp_nav_menu( array( 'theme_location' => 'language-single', 'fallback_cb' => false ) ); ?>
+		</div>
+
 		<div class="entry-meta">
 			<?php judge_familiar_posted_on(); ?>
 		</div><!-- .entry-meta -->
@@ -32,4 +36,3 @@
 		<?php judge_familiar_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
-
