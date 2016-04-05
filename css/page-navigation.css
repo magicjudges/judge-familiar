@@ -1,0 +1,8 @@
+.page_navigation_input label {
+	display: block;
+}
+.page_navigation_input input {
+	width: 48%;
+    box-sizing: border-box;
+    margin-right: 1%;
+}
