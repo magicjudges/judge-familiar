@@ -74,14 +74,14 @@ if ( ! function_exists( 'judge_familiar_page_navigation_box' ) ) :
 ?>
 		<div class="page_navigation_input">
 			<label for="page_navigation_input_prev">Previous Page</label>
-			<input id="page_navigation_input_prev" name="page_navigation_input_prev" type="number" value="<?= $prev ?>" placeholder="Page ID"/><!--
-			--><input id="page_navigation_input_prev_title" name="page_navigation_input_prev_title" type="text" value="<?= $prev_title ?>" placeholder="Page Title" />
+			<input id="page_navigation_input_prev" name="page_navigation_input_prev" type="number" value="<?= $prev ?>" placeholder="Page ID"/><input
+				id="page_navigation_input_prev_title" name="page_navigation_input_prev_title" type="text" value="<?= $prev_title ?>" placeholder="Page Title" />
 		</div>
 
 		<div class="page_navigation_input">
 			<label for="page_navigation_input_next">Next Page</label>
-			<input id="page_navigation_input_next" name="page_navigation_input_next" type="number" value="<?= $next ?>" placeholder="Page ID"/><!--
-			--><input id="page_navigation_input_next_title" name="page_navigation_input_next_title" type="text" value="<?= $next_title ?>" placeholder="Page Title" />
+			<input id="page_navigation_input_next" name="page_navigation_input_next" type="number" value="<?= $next ?>" placeholder="Page ID"/><input
+				id="page_navigation_input_next_title" name="page_navigation_input_next_title" type="text" value="<?= $next_title ?>" placeholder="Page Title" />
 		</div>
 <?php
 	}
