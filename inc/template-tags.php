@@ -107,12 +107,6 @@ function judge_familiar_entry_footer() {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'judge-familiar' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'judge-familiar' ), esc_html__( '1 Comment', 'judge-familiar' ), esc_html__( '% Comments', 'judge-familiar' ) );
-		echo '</span>';
-	}
 }
 endif;
 
