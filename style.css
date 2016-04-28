@@ -1060,13 +1060,13 @@ ul.nav-menu[aria-expanded=true] {
 # Sidebar index
 --------------------------------------------------------------*/
 
-.sidebar-index {
-	padding-right: 0;
-}
-
 .sidebar-index h2 {
 	font-weight: bold;
 	margin: 0.67em 0;
+}
+
+.widget_cets_ad_panda_widget img {
+	border: 1px solid black;
 }
 
 .sidebar-index li {
