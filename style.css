@@ -1231,6 +1231,17 @@ article:hover .edit-link {
 	display: block;
 }
 
+.comment-list {
+	list-style: none;
+	padding: 0;
+	margin-left: 20px;
+}
+
+.comment > .children {
+	margin-left: 30px;
+	list-style: none;
+}
+
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
