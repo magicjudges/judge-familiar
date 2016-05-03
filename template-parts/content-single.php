@@ -18,7 +18,10 @@
 		</div>
 
 		<div class="entry-meta">
-			<?php judge_familiar_posted_on(); ?>
+			<?php
+				judge_familiar_posted_on();
+				judge_familiar_edit_link();
+			?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 

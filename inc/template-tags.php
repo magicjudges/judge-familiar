@@ -81,7 +81,11 @@ function judge_familiar_posted_on() {
 		$posted_on,
 		$byline
 	);
+}
+endif;
 
+if ( ! function_exists( 'judge_familiar_edit_link' ) ) :
+function judge_familiar_edit_link() {
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
@@ -128,7 +132,7 @@ function judge_familiar_featured_author() {
 	$image_html = '';
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	if ( is_plugin_active( 'external-author/external-author.php' )
-	     && is_plugin_active( 'lems-judge-image-helper/lems-judge-image-helper.php' )
+			 && is_plugin_active( 'lems-judge-image-helper/lems-judge-image-helper.php' )
 	) {
 		$external_authors = get_post_meta( get_the_ID(), '_external_authors', true );
 		$featured_index = get_post_meta( get_the_ID(), '_external_authors_featured', true );
@@ -157,11 +161,11 @@ function judge_familiar_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'judge_familiar_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
-			'fields'     => 'ids',
+			'fields'		 => 'ids',
 			'hide_empty' => 1,
 
 			// We only need to know if there is more than one category.
-			'number'     => 2,
+			'number'		 => 2,
 		) );
 
 		// Count the number of categories that are attached to the posts.
@@ -190,4 +194,4 @@ function judge_familiar_category_transient_flusher() {
 	delete_transient( 'judge_familiar_categories' );
 }
 add_action( 'edit_category', 'judge_familiar_category_transient_flusher' );
-add_action( 'save_post',     'judge_familiar_category_transient_flusher' );
+add_action( 'save_post',		 'judge_familiar_category_transient_flusher' );
