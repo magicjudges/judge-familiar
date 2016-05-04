@@ -1237,6 +1237,10 @@ article:hover .edit-link {
 	margin-left: 20px;
 }
 
+.comment-list li {
+	background-color: rgba(0,0,0,0.1);
+}
+
 .comment > .children {
 	margin-left: 30px;
 	list-style: none;
