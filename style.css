@@ -931,6 +931,11 @@ ul.nav-menu[aria-expanded=true] {
 
 #secondary-menu li.lang-zh_hk,
 #language-single ul.menu > li.lang-zh_hk {
+	background-image: url('images/flags/CN_hk.png');
+}
+
+#secondary-menu li.lang-zh_tw,
+#language-single ul.menu > li.lang-zh_tw {
 	background-image: url('images/flags/TW.png');
 }
 
@@ -954,11 +959,14 @@ ul.nav-menu[aria-expanded=true] {
 
 #secondary-menu li.lang-pt,
 #language-single ul.menu > li.lang-pt,
-#secondary-menu li.lang-pt_pt,
-#language-single ul.menu > li.lang-pt_pt, .external-languages a.pt,
 #secondary-menu li.lang-pt_br,
 #language-single ul.menu > li.lang-pt_br {
 	background-image: url('images/flags/BR.png');
+}
+
+#secondary-menu li.lang-pt_pt,
+#language-single ul.menu > li.lang-pt_pt, .external-languages a.pt {
+	background-image: url('images/flags/PT.png');
 }
 
 #secondary-menu li.lang-ko,
@@ -972,6 +980,11 @@ ul.nav-menu[aria-expanded=true] {
 #language-single ul.menu > li.lang-pl,
 .external-languages a.pl {
 	background-image: url('images/flags/PL.png');
+}
+
+#secondary-menu li.lang-il,
+#language-single ul.menu > li.lang-il {
+	background-image: url('images/flags/IL.png');
 }
 
 /*--------------------------------------------------------------
