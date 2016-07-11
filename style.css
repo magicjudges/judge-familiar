@@ -1160,11 +1160,6 @@ ul.nav-menu[aria-expanded=true] {
 	width: 125px;
 }
 
-.entry-summary,
-.entry-content {
-	text-align: justify;
-}
-
 .entry-footer {
 	font-size: .8rem;
 }
