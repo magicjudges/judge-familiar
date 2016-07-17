@@ -32,7 +32,14 @@
 			<?php judge_familiar_featured_author(); ?>
 		<?php endif; ?>
 		<div class="entry-summary">
-			<p><?php echo get_the_excerpt(); ?></p>
+			<p>
+			<?php if ( get_theme_mod( 'show_excerpts' ) == 'full' ) {
+				the_content();
+			} else {
+				echo do_shortcode( get_the_excerpt() );
+			}
+			?>
+			</p>
 		</div><!-- .entry-summary -->
 
 		<?php
