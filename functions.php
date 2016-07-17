@@ -190,16 +190,13 @@ function judge_familiar_widgets_init() {
 endif;
 add_action( 'widgets_init', 'judge_familiar_widgets_init' );
 
-if ( ! function_exists('judge_familiar_excerpt') ) :
-function judge_familiar_excerpt($text = '') {
-	return sprintf('%s <p class="readmore"><a href="%s">Read more.</a></p>',
-		$text,
+if ( ! function_exists('judge_familiar_read_more') ) :
+function judge_familiar_read_more() {
+	return sprintf('<p class="readmore"><a href="%s">Read more.</a></p>',
 		esc_url( get_permalink() )
 	);
 }
 endif;
-
-add_filter( 'get_the_excerpt', 'judge_familiar_excerpt', 99, 1 );
 
 /**
  * Enqueue scripts and styles.
