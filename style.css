@@ -897,28 +897,11 @@ ul.nav-menu[aria-expanded=true] {
 	background-size: 24px !important;
 }
 
-#secondary-menu li.lang-en,
-#language-single ul.menu > li.lang-en,
-.external-languages a.en {
-	background-image: url('images/flags/US.png');
-}
-
-#secondary-menu li.lang-de,
-#language-single ul.menu > li.lang-de,
-.external-languages a.de {
-	background-image: url('images/flags/DE.png');
-}
-
-#secondary-menu li.lang-fr,
-#language-single ul.menu > li.lang-fr,
-.external-languages a.fr {
-	background-image: url('images/flags/FR.png');
-}
-
-#secondary-menu li.lang-es,
-#language-single ul.menu > li.lang-es,
-.external-languages a.es {
-	background-image: url('images/flags/ES.png');
+#secondary-menu li.lang-pt,
+#language-single ul.menu > li.lang-pt,
+#secondary-menu li.lang-pt_br,
+#language-single ul.menu > li.lang-pt_br {
+	background-image: url('images/flags/BR.png');
 }
 
 #secondary-menu li.lang-cn,
@@ -934,15 +917,32 @@ ul.nav-menu[aria-expanded=true] {
 	background-image: url('images/flags/CN_hk.png');
 }
 
-#secondary-menu li.lang-zh_tw,
-#language-single ul.menu > li.lang-zh_tw {
-	background-image: url('images/flags/TW.png');
+#secondary-menu li.lang-cs,
+#language-single ul.menu > li.lang-cs {
+	background-image: url('images/flags/CZ.png');
 }
 
-#secondary-menu li.lang-ja,
-#language-single ul.menu > li.lang-ja,
-.external-languages a.ja {
-	background-image: url('images/flags/JP.png');
+#secondary-menu li.lang-de,
+#language-single ul.menu > li.lang-de,
+.external-languages a.de {
+	background-image: url('images/flags/DE.png');
+}
+
+#secondary-menu li.lang-es,
+#language-single ul.menu > li.lang-es,
+.external-languages a.es {
+	background-image: url('images/flags/ES.png');
+}
+
+#secondary-menu li.lang-fr,
+#language-single ul.menu > li.lang-fr,
+.external-languages a.fr {
+	background-image: url('images/flags/FR.png');
+}
+
+#secondary-menu li.lang-il,
+#language-single ul.menu > li.lang-il {
+	background-image: url('images/flags/IL.png');
 }
 
 #secondary-menu li.lang-it,
@@ -951,22 +951,10 @@ ul.nav-menu[aria-expanded=true] {
 	background-image: url('images/flags/IT.png');
 }
 
-#secondary-menu li.lang-ru,
-#language-single ul.menu > li.lang-ru,
-.external-languages a.ru {
-	background-image: url('images/flags/RU.png');
-}
-
-#secondary-menu li.lang-pt,
-#language-single ul.menu > li.lang-pt,
-#secondary-menu li.lang-pt_br,
-#language-single ul.menu > li.lang-pt_br {
-	background-image: url('images/flags/BR.png');
-}
-
-#secondary-menu li.lang-pt_pt,
-#language-single ul.menu > li.lang-pt_pt, .external-languages a.pt {
-	background-image: url('images/flags/PT.png');
+#secondary-menu li.lang-ja,
+#language-single ul.menu > li.lang-ja,
+.external-languages a.ja {
+	background-image: url('images/flags/JP.png');
 }
 
 #secondary-menu li.lang-ko,
@@ -982,9 +970,26 @@ ul.nav-menu[aria-expanded=true] {
 	background-image: url('images/flags/PL.png');
 }
 
-#secondary-menu li.lang-il,
-#language-single ul.menu > li.lang-il {
-	background-image: url('images/flags/IL.png');
+#secondary-menu li.lang-pt_pt,
+#language-single ul.menu > li.lang-pt_pt, .external-languages a.pt {
+	background-image: url('images/flags/PT.png');
+}
+
+#secondary-menu li.lang-ru,
+#language-single ul.menu > li.lang-ru,
+.external-languages a.ru {
+	background-image: url('images/flags/RU.png');
+}
+
+#secondary-menu li.lang-zh_tw,
+#language-single ul.menu > li.lang-zh_tw {
+	background-image: url('images/flags/TW.png');
+}
+
+#secondary-menu li.lang-en,
+#language-single ul.menu > li.lang-en,
+.external-languages a.en {
+	background-image: url('images/flags/US.png');
 }
 
 /*--------------------------------------------------------------
