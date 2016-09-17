@@ -981,6 +981,12 @@ ul.nav-menu[aria-expanded=true] {
 	background-image: url('images/flags/RU.png');
 }
 
+#secondary-menu li.lang-rs,
+#language-single ul.menu > li.lang-rs,
+.external-languages a.rs {
+	background-image: url('images/flags/RS.png');
+}
+
 #secondary-menu li.lang-zh_tw,
 #language-single ul.menu > li.lang-zh_tw {
 	background-image: url('images/flags/TW.png');
