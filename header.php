@@ -24,6 +24,11 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php
+		if ( function_exists('judge_banner') ) :
+			judge_banner();
+		endif;
+	?>
 	<div id="page" class="hfeed site container">
 		<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'judge-familiar' ); ?></a>
 

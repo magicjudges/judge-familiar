@@ -175,6 +175,7 @@ add_action( 'after_setup_theme', 'judge_familiar_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
+if ( ! function_exists('judge_familiar_widgets_init') ) :
 function judge_familiar_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'judge-familiar' ),
@@ -186,22 +187,21 @@ function judge_familiar_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
+endif;
 add_action( 'widgets_init', 'judge_familiar_widgets_init' );
 
-if ( ! function_exists('judge_familiar_excerpt') ) :
-	function judge_familiar_excerpt($text = '') {
-		return sprintf('%s <p class="readmore"><a href="%s">Read more.</a></p>',
-			$text,
-			esc_url( get_permalink() )
-		);
-	}
+if ( ! function_exists('judge_familiar_read_more') ) :
+function judge_familiar_read_more() {
+	return sprintf('<p class="readmore"><a href="%s">Read more.</a></p>',
+		esc_url( get_permalink() )
+	);
+}
 endif;
-
-add_filter( 'get_the_excerpt', 'judge_familiar_excerpt', 99, 1 );
 
 /**
  * Enqueue scripts and styles.
  */
+if ( ! function_exists('judge_familiar_scripts') ) :
 function judge_familiar_scripts() {
 	wp_enqueue_style( 'bootstrap-v4', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css', array(), '20151026' );
 	wp_enqueue_style( 'judge-familiar-style', get_stylesheet_uri() );
@@ -218,6 +218,7 @@ function judge_familiar_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+endif;
 add_action( 'wp_enqueue_scripts', 'judge_familiar_scripts' );
 
 /**
@@ -257,17 +258,9 @@ function shortcode_error($code, $msg) {
 
 endif;
 
+/**
+ * This magically loads all files in the shortcodes folder.
+ */
 foreach (glob(get_template_directory() . '/shortcodes/*.php') as $file) {
   include $file;
 }
-
-if( !function_exists('var_dump_to_log')) :
-
-function var_dump_to_log($variable)
-{
-  ob_start();
-  var_dump($variable);
-  trigger_error(ob_get_clean());
-}
-
-endif;
