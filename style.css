@@ -940,8 +940,8 @@ ul.nav-menu[aria-expanded=true] {
 	background-image: url('images/flags/FR.png');
 }
 
-#secondary-menu li.lang-il,
-#language-single ul.menu > li.lang-il {
+#secondary-menu li.lang-hl,
+#language-single ul.menu > li.lang-hl {
 	background-image: url('images/flags/IL.png');
 }
 
