@@ -330,6 +330,7 @@ header .site-header-image img {
 }
 
 .site-description span {
+	float: right;
 	vertical-align: -9px;
 }
 
