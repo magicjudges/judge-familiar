@@ -999,6 +999,12 @@ ul.nav-menu[aria-expanded=true] {
 	background-image: url('images/flags/US.png');
 }
 
+#secondary-menu li.lang-th,
+#language-single ul.menu > li.lang-th,
+.external-languages a.th {
+	background-image: url('images/flags/TH.png');
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
