@@ -1,5 +1,4 @@
 .remote-sync
-bootstrap/
 .remote-sync.json
 .sass-cache
 .DS_Store
