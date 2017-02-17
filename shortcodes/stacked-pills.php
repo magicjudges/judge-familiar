@@ -86,7 +86,7 @@ function judge_familiar_stacked_pills_enqueue($posts)
 {
     global $post;
 
-    if (has_shortcode($post->post_content, 'stacked-pills')) {
+    if ($post && has_shortcode($post->post_content, 'stacked-pills')) {
         wp_enqueue_style(
           'judge-familiar-stacked-pills',
           get_template_directory_uri().'/css/stacked-pills.css'

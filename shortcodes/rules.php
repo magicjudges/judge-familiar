@@ -63,7 +63,7 @@ function judge_familiar_rules_enqueue($posts)
 {
     global $post;
 
-    if (has_shortcode($post->post_content, 'rules')) {
+    if ($post && has_shortcode($post->post_content, 'rules')) {
         wp_enqueue_style(
           'judge-familiar-rules',
           get_template_directory_uri().'/css/rules.css'
