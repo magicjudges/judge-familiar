@@ -3,7 +3,7 @@
 if (!function_exists('judge_familiar_stacked_pills')) :
 
 /**
- * Usage: [stacked-pills]
+ * Usage: [stacked-pills size=2 horizontal]
  *          [stacked-pills-item name="Name in Nav"]Content[/stacked-pills-item]
  *        [/stacked-pills].
  */
@@ -13,8 +13,15 @@ function judge_familiar_stacked_pills($atts, $content, $tag)
         return shortcode_error($tag, 'must have non-empty content');
     }
 
+    foreach($atts as $att) {
+        if($att == "horizontal") {
+            $atts["horizontal"] = true;
+        }
+    }
+
     $atts = shortcode_atts(array(
-        'size' => '2'
+        'size' => '2',
+        'horizontal' => false
     ), $atts);
 
     // Regex magic! https://xkcd.com/1171/
@@ -41,10 +48,11 @@ function judge_familiar_stacked_pills($atts, $content, $tag)
     }
 
     return sprintf(
-      '<div class="row judge-familiar-stacked-pills">'.
+      '<div class="row judge-familiar-stacked-pills %s">'.
       '<ul class="nav nav-pills nav-stacked col-lg-%d" role="tablist">%s</ul>'.
       '<div class="tab-content col-lg-%d">%s</div>'.
       '</div>',
+      ($atts['horizontal'] ? 'horizontal':''),
       intval($atts['size']),
       implode(array_map(function ($nav_item) {
         return sprintf(

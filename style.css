@@ -901,9 +901,17 @@ ul.nav-menu[aria-expanded=true] {
 
 #secondary-menu li.lang-pt,
 #language-single ul.menu > li.lang-pt,
+.external-languages a.pt,
 #secondary-menu li.lang-pt_br,
-#language-single ul.menu > li.lang-pt_br {
+#language-single ul.menu > li.lang-pt_br,
+.external-languages a.pt_br {
 	background-image: url('images/flags/BR.png');
+}
+
+#secondary-menu li.lang-pt_pt,
+#language-single ul.menu > li.lang-pt_pt,
+.external-languages a.pt_pt {
+	background-image: url('images/flags/PT.png');
 }
 
 #secondary-menu li.lang-cn,
@@ -926,7 +934,10 @@ ul.nav-menu[aria-expanded=true] {
 
 #secondary-menu li.lang-de,
 #language-single ul.menu > li.lang-de,
-.external-languages a.de {
+.external-languages a.de,
+#secondary-menu li.lang-de_de,
+#language-single ul.menu > li.lang-de_de,
+.external-languages a.de_de {
 	background-image: url('images/flags/DE.png');
 }
 
@@ -949,7 +960,10 @@ ul.nav-menu[aria-expanded=true] {
 
 #secondary-menu li.lang-it,
 #language-single ul.menu > li.lang-it,
-.external-languages a.it {
+.external-languages a.it,
+#secondary-menu li.lang-it_it,
+#language-single ul.menu > li.lang-it_it,
+.external-languages a.it_it {
 	background-image: url('images/flags/IT.png');
 }
 

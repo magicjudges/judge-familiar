@@ -9,3 +9,27 @@
 .judge-familiar-stacked-pills .nav-link.active:hover {
 	background-color: darkorange;
 }
+
+/* Horizontal */
+.judge-familiar-stacked-pills.horizontal {
+	margin-left: 0;
+}
+
+.judge-familiar-stacked-pills.horizontal .nav-pills {
+	float: none;
+	width: 100%;
+	display: flex;
+	margin-bottom: 1em;
+}
+
+.judge-familiar-stacked-pills.horizontal .nav-stacked .nav-item+.nav-item {
+	margin-top: 0;
+}
+
+.judge-familiar-stacked-pills.horizontal .nav-link {
+	border-radius: 0.25rem;
+}
+.judge-familiar-stacked-pills.horizontal .tab-content {
+	width: 100%;
+	float: none;
+}
