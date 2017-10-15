@@ -68,7 +68,7 @@
 								alt="Header Image"
 					/>
 				</div>
-			<? endif; ?>
+			<?php endif; ?>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<div class="col-lg-9 col-xs-7 primary-menu">
